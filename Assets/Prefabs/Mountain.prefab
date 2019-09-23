@@ -70,22 +70,28 @@ PrefabInstance:
     - target: {fileID: 5907271794046357225, guid: a4132131674e0304c8db46df0b4691de,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.2735849
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5907271794046357225, guid: a4132131674e0304c8db46df0b4691de,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.21551263
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5907271794046357225, guid: a4132131674e0304c8db46df0b4691de,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.22207643
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5907271794046357225, guid: a4132131674e0304c8db46df0b4691de,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3627264120405484348, guid: 8a0d466a23ae0ef4392eb41cff5b930d,
+        type: 3}
     - target: {fileID: 1927406784805440938, guid: a4132131674e0304c8db46df0b4691de,
         type: 3}
-      propertyPath: isPassable
-      value: 0
+      propertyPath: travelCost
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4132131674e0304c8db46df0b4691de, type: 3}

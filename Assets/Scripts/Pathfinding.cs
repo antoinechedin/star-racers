@@ -63,12 +63,12 @@ public class Pathfinding
                 if (closedSet.Contains(neighbor))
                     continue;
 
-                float newNeighborGCost = currentNode.gCost + grid.GetDistance(currentNode, neighbor);
-                if (newNeighborGCost < neighbor.gCost || neighbor.previousNode == null)
+                float newNeighborGCost = currentNode.gCost + (grid.GetDistance(currentNode, neighbor) * (currentNode.travelCost + neighbor.travelCost) / 2);
+                if (newNeighborGCost < neighbor.gCost || !openSet.Contains(neighbor))
                 {
                     neighbor.previousNode = currentNode;
                     neighbor.gCost = newNeighborGCost;
-                    neighbor.fCost = newNeighborGCost + grid.GetDistance(currentNode, neighbor);
+                    neighbor.fCost = newNeighborGCost + grid.GetDistance(neighbor, targetNode);
 
                     if (!openSet.Contains(neighbor))
                     {

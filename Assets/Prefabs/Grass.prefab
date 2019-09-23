@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7581358491252493312
+--- !u!1001 &4574275690387377248
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,12 +10,12 @@ PrefabInstance:
     - target: {fileID: 1377304603050690567, guid: 4813f39658713ea46a0dde9163acaef3,
         type: 3}
       propertyPath: m_Name
-      value: Road
+      value: Grass
       objectReference: {fileID: 0}
     - target: {fileID: 8325435125701444010, guid: 4813f39658713ea46a0dde9163acaef3,
         type: 3}
       propertyPath: travelCost
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5898346432014987959, guid: 4813f39658713ea46a0dde9163acaef3,
         type: 3}
@@ -74,24 +74,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4092854000245687017, guid: 4813f39658713ea46a0dde9163acaef3,
         type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4092854000245687017, guid: 4813f39658713ea46a0dde9163acaef3,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4092854000245687017, guid: 4813f39658713ea46a0dde9163acaef3,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4092854000245687017, guid: 4813f39658713ea46a0dde9163acaef3,
-        type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 6007627129536956325, guid: 8a0d466a23ae0ef4392eb41cff5b930d,
+      objectReference: {fileID: -7486092956772349302, guid: 8a0d466a23ae0ef4392eb41cff5b930d,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4813f39658713ea46a0dde9163acaef3, type: 3}

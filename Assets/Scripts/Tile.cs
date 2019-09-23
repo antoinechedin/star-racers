@@ -8,6 +8,8 @@ public class Tile : MonoBehaviour
     [HideInInspector] public int gridX, gridY;
     [HideInInspector] public float gCost, fCost;
 
+    public float travelCost = 1f;
+
     public bool isPassable;
 
     [HideInInspector] public Tile previousNode;
@@ -16,7 +18,5 @@ public class Tile : MonoBehaviour
     {
         this.gridX = gridX;
         this.gridY = gridY;
-        this.gCost = Mathf.Infinity;
-        this.fCost = Mathf.Infinity;
     }
 }

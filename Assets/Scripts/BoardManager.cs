@@ -24,7 +24,7 @@ public class BoardManager : MonoBehaviour
         {
             foreach (Tile tile in path)
             {
-                tile.GetComponent<SpriteRenderer>().color = Color.gray;
+                tile.GetComponent<SpriteRenderer>().color = Color.white;
             }
         }
         path.Clear();
@@ -33,7 +33,6 @@ public class BoardManager : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
         Pathfinding pf = new Pathfinding(grid, false);
         path = pf.FindPath(Vector2.zero, mousePosition);
-        Debug.Log(path.Count);
 
         foreach (Tile tile in path)
         {
