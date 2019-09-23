@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pathfinding : MonoBehaviour
+public class Pathfinding
 {
     public GameGrid grid;
     public bool debug;
+
+    public Pathfinding(GameGrid grid, bool debug){
+        this.grid = grid;
+        this.debug = debug;
+    }
 
     public List<Tile> ReconstructPath(Tile current)
     {
@@ -74,19 +79,5 @@ public class Pathfinding : MonoBehaviour
         }
         // Path finding as failed, return current node
         return ReconstructPath(startNode);
-    }
-
-    private void Start()
-    {
-
-        Tile start = grid.tileMatrix[0, 0];
-        Tile target = grid.tileMatrix[grid.gridSize.x - 1, grid.gridSize.y - 1];
-
-        List<Tile> path = FindPath(start.transform.position, target.transform.position);
-
-        foreach (Tile tile in path)
-        {
-            tile.GetComponent<SpriteRenderer>().color = Color.red;
-        }        
     }
 }

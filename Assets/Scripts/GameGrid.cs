@@ -2,60 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameGrid : MonoBehaviour
+public class GameGrid
 {
     public Vector2Int gridSize;
-    public GameObject roadPrefab, mountainPrefab;
+    public Tile[,] tileMatrix;
 
-    Vector2 bottomLeft;
-
-    public Tile[,] tileMatrix = new Tile[1, 1];
-
-    public void DestroyAllTiles()
+    public GameGrid(Vector2Int gridSize)
     {
-        for (int i = transform.childCount; i > 0; i--)
-        {
-            DestroyImmediate(transform.GetChild(0).gameObject);
-        }
-    }
-
-    public void LinkTiles()
-    {
+        this.gridSize = gridSize;
         tileMatrix = new Tile[gridSize.x, gridSize.y];
-
-        for (int x = 0; x < gridSize.x; x++)
-        {
-            for (int y = 0; y < gridSize.y; y++)
-            {
-                tileMatrix[x, y] = transform.GetChild(y + x * gridSize.x).GetComponent<Tile>();
-            }
-        }
-    }
-
-    public void CreateGrid()
-    {
-        DestroyAllTiles();
-
-        bottomLeft = new Vector2(-gridSize.x / 2f + 0.5f, -gridSize.y / 2f + 0.5f);
-        tileMatrix = new Tile[gridSize.x, gridSize.y];
-
-        for (int x = 0; x < gridSize.x; x++)
-        {
-            for (int y = 0; y < gridSize.y; y++)
-            {
-                Vector2 worldPosition = bottomLeft + new Vector2(x, y);
-                Tile tile = Instantiate(roadPrefab, worldPosition, Quaternion.identity, transform).GetComponent<Tile>();
-                tile.Initialise(x, y);
-                tileMatrix[x, y] = tile;
-            }
-        }
     }
 
     public Tile GetNodeFromWorldPostion(Vector2 worldPosition)
     {
-        Vector2 gridPosition = worldPosition - bottomLeft;
-        int gridX = (int)Mathf.Clamp(gridPosition.x, 0, gridSize.x - 1);
-        int gridy = (int)Mathf.Clamp(gridPosition.y, 0, gridSize.y - 1);
+        int gridX = (int)Mathf.Clamp(worldPosition.x, 0, gridSize.x - 1);
+        int gridy = (int)Mathf.Clamp(worldPosition.y, 0, gridSize.y - 1);
         return tileMatrix[gridX, gridy];
     }
 
@@ -65,7 +26,7 @@ public class GameGrid : MonoBehaviour
         for (int x = -1; x <= 1; x++)
         {
             int gridX = node.gridX + x;
-            for (int y = -1; y <= 1; x++)
+            for (int y = -1; y <= 1; y++)
             {
                 if (x == 0 && y == 0) continue;
 

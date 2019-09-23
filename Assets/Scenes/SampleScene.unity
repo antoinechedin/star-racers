@@ -197,7 +197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 4.5, y: 4.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 2019292268}
   - component: {fileID: 2019292267}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: Broad Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,14 +229,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2019292266}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c378e2349ff38b7439d6e9daa94f33ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 144c738fec3b0e445a062e890a182ee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSize: {x: 4, y: 4}
-  roadPrefab: {fileID: 8803216055643653127, guid: a4132131674e0304c8db46df0b4691de,
+  map: {fileID: 2800000, guid: e51d5e9f569cc9941b97344b21a0345e, type: 3}
+  defaultTile: {fileID: 8325435125701444010, guid: 4813f39658713ea46a0dde9163acaef3,
     type: 3}
-  mountainPrefab: {fileID: 198242671712616188, guid: a879573c2ad80fe4286331c9a07ded64,
-    type: 3}
+  colorMappings:
+  - color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+    tilePrefab: {fileID: 8803216055643653127, guid: a4132131674e0304c8db46df0b4691de,
+      type: 3}
+  - color: {r: 0, g: 0, b: 0, a: 1}
+    tilePrefab: {fileID: 198242671712616188, guid: a879573c2ad80fe4286331c9a07ded64,
+      type: 3}
 --- !u!4 &2019292268
 Transform:
   m_ObjectHideFlags: 0
