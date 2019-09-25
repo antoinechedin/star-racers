@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 2019292268}
   - component: {fileID: 2019292267}
   m_Layer: 0
-  m_Name: Broad Manager
+  m_Name: Board Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
