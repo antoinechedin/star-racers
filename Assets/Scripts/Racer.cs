@@ -4,5 +4,9 @@ using UnityEngine;
 
 public class Racer : MonoBehaviour
 {
-    Pathfinding pathfinding;S
+    Pathfinding pathfinding;
+
+    public void Initialize(Pathfinding pathfinding){
+        pathfinding = pathfinding;
+    }
 }
