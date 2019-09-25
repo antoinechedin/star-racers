@@ -7,6 +7,8 @@ public class BoardManager : MonoBehaviour
     public Tile defaultTile;
     public ColorMapping[] colorMappings;
 
+    public GameObject racerPrefab;
+
     GameGrid grid;
     
     List<Tile> path;
@@ -16,28 +18,9 @@ public class BoardManager : MonoBehaviour
         GenerateLevel();
         path = new List<Tile>();
 
-    }
-
-    private void Update()
-    {
-        if (path.Count > 0)
-        {
-            foreach (Tile tile in path)
-            {
-                tile.GetComponent<SpriteRenderer>().color = Color.white;
-            }
-        }
-        path.Clear();
-
-
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
-        Pathfinding pf = new Pathfinding(grid, false);
-        path = pf.FindPath(Vector2.zero, mousePosition);
-
-        foreach (Tile tile in path)
-        {
-            tile.GetComponent<SpriteRenderer>().color = Color.red;
-        }
+        Racer racer = Instantiate(racerPrefab, new Vector2(2.5f, 0.5f), Quaternion.identity).GetComponent<Racer>();
+        racer.Initialize(new Pathfinding(grid), grid.tileMatrix[4, 15]);
+        StartCoroutine(racer.Drive());
     }
 
     void GenerateLevel()

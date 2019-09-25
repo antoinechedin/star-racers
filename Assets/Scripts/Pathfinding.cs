@@ -5,11 +5,9 @@ using UnityEngine;
 public class Pathfinding
 {
     public GameGrid grid;
-    public bool debug;
 
-    public Pathfinding(GameGrid grid, bool debug){
+    public Pathfinding(GameGrid grid){
         this.grid = grid;
-        this.debug = debug;
     }
 
     public List<Tile> ReconstructPath(Tile current)
