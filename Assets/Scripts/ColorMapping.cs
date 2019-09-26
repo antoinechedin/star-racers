@@ -4,5 +4,5 @@
 public class ColorMapping
 {
     public Color color;
-    public GameObject tilePrefab;
+    public GameObject prefab;
 }

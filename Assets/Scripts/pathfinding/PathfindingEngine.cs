@@ -1,36 +1,28 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pathfinding
+public class PathfindingEngine
 {
-    public GameGrid grid;
+    PathGrid grid;
 
-    public Pathfinding(GameGrid grid){
-        this.grid = grid;
+    public PathfindingEngine(Tile[,] tiles, Racer racer){
+        grid = RebuildPathGrid(tiles,  racer);
     }
 
-    public List<Tile> ReconstructPath(Tile current)
+    public PathGrid RebuildPathGrid(Tile[,] tiles, Racer racer)
     {
-        List<Tile> path = new List<Tile>();
-
-        path.Add(current);
-        while (current.previousNode != null)
-        {
-            current = current.previousNode;
-            path.Add(current);
-        }
-        path.Reverse();
-        return path;
+        return new PathGrid(tiles, racer);
     }
 
-    public List<Tile> FindPath(Vector2 start, Vector2 target)
+    public List<Node> FindPath(Vector2 start, Vector2 target)
     {
-        Tile startNode = grid.GetNodeFromWorldPostion(start);
-        Tile targetNode = grid.GetNodeFromWorldPostion(target);
+        Node startNode = grid.GetNodeFromWorldPostion(start);
+        Node targetNode = grid.GetNodeFromWorldPostion(target);
 
-        List<Tile> openSet = new List<Tile>();
-        List<Tile> closedSet = new List<Tile>();
+        List<Node> openSet = new List<Node>();
+        List<Node> closedSet = new List<Node>();
 
         startNode.gCost = 0;
         startNode.fCost = grid.GetDistance(startNode, targetNode);
@@ -38,7 +30,7 @@ public class Pathfinding
 
         while (openSet.Count > 0)
         {
-            Tile currentNode = openSet[0];
+            Node currentNode = openSet[0];
 
             for (int i = 1; i < openSet.Count; i++)
             {
@@ -56,7 +48,7 @@ public class Pathfinding
             openSet.Remove(currentNode);
             closedSet.Add(currentNode);
 
-            foreach (Tile neighbor in grid.GetNodeNeighbors(currentNode))
+            foreach (Node neighbor in grid.GetNodeNeighbors4(currentNode))
             {
                 if (closedSet.Contains(neighbor))
                     continue;
@@ -77,5 +69,19 @@ public class Pathfinding
         }
         // Path finding as failed, return current node
         return ReconstructPath(startNode);
+    }
+
+    public List<Node> ReconstructPath(Node current)
+    {
+        List<Node> path = new List<Node>();
+
+        path.Add(current);
+        while (current.previousNode != null)
+        {
+            current = current.previousNode;
+            path.Add(current);
+        }
+        path.Reverse();
+        return path;
     }
 }

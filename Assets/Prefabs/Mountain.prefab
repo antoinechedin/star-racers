@@ -91,7 +91,12 @@ PrefabInstance:
     - target: {fileID: 1927406784805440938, guid: a4132131674e0304c8db46df0b4691de,
         type: 3}
       propertyPath: travelCost
-      value: 8
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927406784805440938, guid: a4132131674e0304c8db46df0b4691de,
+        type: 3}
+      propertyPath: type
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4132131674e0304c8db46df0b4691de, type: 3}
