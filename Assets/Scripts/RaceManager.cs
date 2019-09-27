@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RaceManager : MonoBehaviour
 {
-    public static float raceSpeed = 3f;
+    public static float raceSpeed = 2f;
 
     public Texture2D level;
     public GameObject defaultTile;
@@ -12,35 +12,44 @@ public class RaceManager : MonoBehaviour
     Tile[,] tiles;
     Tile finishTile;
 
-    public GameObject racerPrefab;
+    public GameObject carPrefab;
+    public GameObject truckPrefab;
 
     private void Start()
     {
         BuildLevel();
         
         Racer enemy1 = Instantiate(
-            racerPrefab, 
+            carPrefab, 
             new Vector2(1f + .5f, 0f + .5f), 
             Quaternion.identity
         ).GetComponent<Racer>();
-        enemy1.pathEngine = new PathfindingEngine(tiles, enemy1);
+        enemy1.pathEngine = new PathfindingEngine(tiles, enemy1.equipement);
         enemy1.FindPathAndDrive(finishTile.transform.position);
 
         Racer enemy2 = Instantiate(
-            racerPrefab, 
+            carPrefab, 
             new Vector2(7f + .5f, 0f + .5f), 
             Quaternion.identity
         ).GetComponent<Racer>();
-        enemy2.pathEngine = new PathfindingEngine(tiles, enemy1);
+        enemy2.pathEngine = new PathfindingEngine(tiles, enemy2.equipement);
         enemy2.FindPathAndDrive(finishTile.transform.position);
 
         Racer enemy3 = Instantiate(
-            racerPrefab, 
+            truckPrefab, 
             new Vector2(6f + .5f, 0f + .5f), 
             Quaternion.identity
         ).GetComponent<Racer>();
-        enemy3.pathEngine = new PathfindingEngine(tiles, enemy1);
+        enemy3.pathEngine = new PathfindingEngine(tiles, enemy3.equipement);
         enemy3.FindPathAndDrive(finishTile.transform.position);
+
+        Racer enemy4 = Instantiate(
+            truckPrefab, 
+            new Vector2(0f + .5f, 0f + .5f), 
+            Quaternion.identity
+        ).GetComponent<Racer>();
+        enemy4.pathEngine = new PathfindingEngine(tiles, enemy4.equipement);
+        enemy4.FindPathAndDrive(finishTile.transform.position);
     }
 
     void BuildLevel()
@@ -51,7 +60,7 @@ public class RaceManager : MonoBehaviour
             for (int y = 0; y < level.height; y++)
             {
                 tiles[x, y] = InstantiateTile(x, y, level.GetPixel(x, y));
-                if (tiles[x, y].type == Tile.Type.finish)
+                if (tiles[x, y].isFinish)
                 {
                     finishTile = tiles[x, y];
                 }

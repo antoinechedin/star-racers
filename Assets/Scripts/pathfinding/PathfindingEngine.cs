@@ -7,13 +7,13 @@ public class PathfindingEngine
 {
     PathGrid grid;
 
-    public PathfindingEngine(Tile[,] tiles, Racer racer){
-        grid = RebuildPathGrid(tiles,  racer);
+    public PathfindingEngine(Tile[,] tiles, RacerEquipement equipement){
+        grid = RebuildPathGrid(tiles,  equipement);
     }
 
-    public PathGrid RebuildPathGrid(Tile[,] tiles, Racer racer)
+    public PathGrid RebuildPathGrid(Tile[,] tiles, RacerEquipement equipement)
     {
-        return new PathGrid(tiles, racer);
+        return new PathGrid(tiles, equipement);
     }
 
     public List<Node> FindPath(Vector2 start, Vector2 target)

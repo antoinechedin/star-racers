@@ -6,6 +6,7 @@ public class Racer : MonoBehaviour
 {
     public PathfindingEngine pathEngine;
     public List<Node> path = new List<Node>();
+    public RacerEquipement equipement;
     bool moving = false;
 
     public void FindPathAndDrive(Vector2 target)

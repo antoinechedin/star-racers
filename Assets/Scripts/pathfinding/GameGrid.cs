@@ -7,7 +7,7 @@ public class PathGrid
     public Node[,] nodes;
     public Vector2Int gridSize;
 
-    public PathGrid(Tile[,] tiles, Racer racer)
+    public PathGrid(Tile[,] tiles, RacerEquipement equipement)
     {
         gridSize = new Vector2Int(tiles.GetLength(0), tiles.GetLength(1));
         nodes = new Node[gridSize.x, gridSize.y];
@@ -15,7 +15,7 @@ public class PathGrid
         {
             for (int y = 0; y < gridSize.y; y++)
             {
-                nodes[x, y] = new Node(x, y, tiles[x, y], racer);
+                nodes[x, y] = new Node(x, y, tiles[x, y], equipement);
             }
         }
     }

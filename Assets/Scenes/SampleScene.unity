@@ -235,22 +235,10 @@ MonoBehaviour:
   level: {fileID: 2800000, guid: b84318383737bee4eb3307f9363e6708, type: 3}
   defaultTile: {fileID: 1377304603050690567, guid: 4813f39658713ea46a0dde9163acaef3,
     type: 3}
-  colorMappings:
-  - color: {r: 0.61960787, g: 0.61960787, b: 0.61960787, a: 1}
-    prefab: {fileID: 8803216055643653127, guid: a4132131674e0304c8db46df0b4691de,
-      type: 3}
-  - color: {r: 0.29803923, g: 0.6862745, b: 0.3137255, a: 1}
-    prefab: {fileID: 3199311363485090919, guid: 01f5bc73a7755d443af366925e19050f,
-      type: 3}
-  - color: {r: 0.4745098, g: 0.33333334, b: 0.28235295, a: 1}
-    prefab: {fileID: 198242671712616188, guid: a879573c2ad80fe4286331c9a07ded64, type: 3}
-  - color: {r: 0.9137255, g: 0.11764706, b: 0.3882353, a: 1}
-    prefab: {fileID: 5606040032137097224, guid: 9fef9d9c8c5493841b3effcab9ce7cc3,
-      type: 3}
-  - color: {r: 1, g: 1, b: 1, a: 1}
-    prefab: {fileID: 7006394710875747202, guid: 5f570aac930d062458ca9b0a9893c90f,
-      type: 3}
-  racerPrefab: {fileID: 7110529654605276652, guid: ecd8882aa33953c449d3b64b4e8c97e3,
+  mapper: {fileID: 11400000, guid: 24e714c3c0fee5f4d8702709db761997, type: 2}
+  carPrefab: {fileID: 7615938827191122120, guid: 35c6969acb5a4a34393da38f9cbca136,
+    type: 3}
+  truckPrefab: {fileID: 7821906704676805771, guid: 96f0285939beeb349b5f0128fc89d1c8,
     type: 3}
 --- !u!4 &2019292268
 Transform:
