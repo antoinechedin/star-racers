@@ -247,6 +247,9 @@ MonoBehaviour:
   - color: {r: 0.9137255, g: 0.11764706, b: 0.3882353, a: 1}
     prefab: {fileID: 5606040032137097224, guid: 9fef9d9c8c5493841b3effcab9ce7cc3,
       type: 3}
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    prefab: {fileID: 7006394710875747202, guid: 5f570aac930d062458ca9b0a9893c90f,
+      type: 3}
   racerPrefab: {fileID: 7110529654605276652, guid: ecd8882aa33953c449d3b64b4e8c97e3,
     type: 3}
 --- !u!4 &2019292268

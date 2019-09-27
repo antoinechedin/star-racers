@@ -7,7 +7,7 @@ public class RaceManager : MonoBehaviour
 
     public Texture2D level;
     public GameObject defaultTile;
-    public ColorMapping[] colorMappings;
+    public ColorMapper mapper;
 
     Tile[,] tiles;
     Tile finishTile;
@@ -61,7 +61,7 @@ public class RaceManager : MonoBehaviour
 
     Tile InstantiateTile(float x, float y, Color type)
     {
-        foreach (ColorMapping mapping in colorMappings)
+        foreach (ColorMapping mapping in mapper.mapping)
         {
             if (type == mapping.color)
             {

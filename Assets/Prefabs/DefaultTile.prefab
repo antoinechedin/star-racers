@@ -94,10 +94,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31892be965d4b34d924c6c9bbf11426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridX: 0
-  gridY: 0
-  gCost: 0
-  fCost: 0
+  type: 0
   travelCost: 1
-  isPassable: 1
-  previousNode: {fileID: 0}
