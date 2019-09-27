@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Racer : MonoBehaviour
 {
-    public AStarEngine pathEngine;
-    public List<Node> path = new List<Node>();
+    public PathfindingEngine pathEngine;
+    public List<PathNode> path = new List<PathNode>();
     public RacerEquipement equipement;
     bool moving = false;
 
@@ -41,7 +41,7 @@ public class Racer : MonoBehaviour
         if (!moving && path.Count >= 2)
         {
             moving = true;
-            StartCoroutine(Move(path[1].worldPosition, (path[0].travelCost + path[1].travelCost) / 2f));
+            StartCoroutine(Move(path[1].GetWorldPosition(), (path[0].GetTravelCost() + path[1].GetTravelCost()) / 2f));
         }
     }
 }

@@ -14,7 +14,7 @@ public class PathGraph
         {
             for (int y = 0; y < graphSize.y; y++)
             {
-                nodes.Add(new GraphNode(x, y, tiles[x, y].transform.position));
+                nodes.Add(new GraphNode(x, y, tiles[x, y], equipement));
             }
         }
 
@@ -73,7 +73,7 @@ public class PathGraph
             List<GraphEdge> toRemove = new List<GraphEdge>();
             foreach (GraphEdge edge in node.edges)
             {
-                if (edge.to == nodeToRemove || edge.from == nodeToRemove)
+                if (edge.to == nodeToRemove)
                 {
                     toRemove.Add(edge);
                 }

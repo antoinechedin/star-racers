@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class DijkstraEngine
+public class DijkstraEngine : PathfindingEngine
 {
     PathGraph graph;
 
@@ -15,7 +15,7 @@ public class DijkstraEngine
         return new PathGraph(tiles, equipement);
     }
 
-    public List<GraphNode> FindPath(Vector2 start, Vector2 target)
+    public override List<PathNode> FindPath(Vector2 start, Vector2 target)
     {
         foreach (GraphNode node in graph.nodes)
         {
@@ -49,9 +49,9 @@ public class DijkstraEngine
         return ReconstructPath(startNode);
     }
 
-    public List<GraphNode> ReconstructPath(GraphNode current)
+    public List<PathNode> ReconstructPath(GraphNode current)
     {
-        List<GraphNode> path = new List<GraphNode>();
+        List<PathNode> path = new List<PathNode>();
 
         path.Add(current);
         while (current.previous != null)

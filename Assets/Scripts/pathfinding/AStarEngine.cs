@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AStarEngine
+public class AStarEngine : PathfindingEngine
 {
     PathGrid grid;
 
@@ -16,7 +16,7 @@ public class AStarEngine
         return new PathGrid(tiles, equipement);
     }
 
-    public List<Node> FindPath(Vector2 start, Vector2 target)
+    public override List<PathNode> FindPath(Vector2 start, Vector2 target)
     {
         Node startNode = grid.GetNodeFromWorldPostion(start);
         Node targetNode = grid.GetNodeFromWorldPostion(target);
@@ -71,9 +71,9 @@ public class AStarEngine
         return ReconstructPath(startNode);
     }
 
-    public List<Node> ReconstructPath(Node current)
+    public List<PathNode> ReconstructPath(Node current)
     {
-        List<Node> path = new List<Node>();
+        List<PathNode> path = new List<PathNode>();
 
         path.Add(current);
         while (current.previousNode != null)

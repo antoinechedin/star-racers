@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Node
+public class Node : PathNode
 {
     public int x, y;
     public Vector3 worldPosition;
@@ -15,5 +15,15 @@ public class Node
         this.y = y;
         this.worldPosition = tile.transform.position;
         this.travelCost = tile.travelCost / equipement.GetSpeedFactorFor(tile.type);
+    }
+
+    public override float GetTravelCost()
+    {
+        return travelCost;
+    }
+
+    public override Vector3 GetWorldPosition()
+    {
+        return worldPosition;
     }
 }
