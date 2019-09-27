@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipements:
   - type: 1
-    speedFactor: 2
+    speedFactor: 2.2
   - type: 2
     speedFactor: 0.35
   - type: 3
