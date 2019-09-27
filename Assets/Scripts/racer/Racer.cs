@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Racer : MonoBehaviour
 {
-    public PathfindingEngine pathEngine;
+    public AStarEngine pathEngine;
     public List<Node> path = new List<Node>();
     public RacerEquipement equipement;
     bool moving = false;

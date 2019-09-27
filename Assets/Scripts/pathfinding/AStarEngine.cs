@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PathfindingEngine
+public class AStarEngine
 {
     PathGrid grid;
 
-    public PathfindingEngine(Tile[,] tiles, RacerEquipement equipement){
+    public AStarEngine(Tile[,] tiles, RacerEquipement equipement){
         grid = RebuildPathGrid(tiles,  equipement);
     }
 

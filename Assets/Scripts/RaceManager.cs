@@ -24,7 +24,7 @@ public class RaceManager : MonoBehaviour
             new Vector2(1f + .5f, 0f + .5f), 
             Quaternion.identity
         ).GetComponent<Racer>();
-        enemy1.pathEngine = new PathfindingEngine(tiles, enemy1.equipement);
+        enemy1.pathEngine = new AStarEngine(tiles, enemy1.equipement);
         enemy1.FindPathAndDrive(finishTile.transform.position);
 
         Racer enemy2 = Instantiate(
@@ -32,7 +32,7 @@ public class RaceManager : MonoBehaviour
             new Vector2(7f + .5f, 0f + .5f), 
             Quaternion.identity
         ).GetComponent<Racer>();
-        enemy2.pathEngine = new PathfindingEngine(tiles, enemy2.equipement);
+        enemy2.pathEngine = new AStarEngine(tiles, enemy2.equipement);
         enemy2.FindPathAndDrive(finishTile.transform.position);
 
         Racer enemy3 = Instantiate(
@@ -40,7 +40,7 @@ public class RaceManager : MonoBehaviour
             new Vector2(6f + .5f, 0f + .5f), 
             Quaternion.identity
         ).GetComponent<Racer>();
-        enemy3.pathEngine = new PathfindingEngine(tiles, enemy3.equipement);
+        enemy3.pathEngine = new AStarEngine(tiles, enemy3.equipement);
         enemy3.FindPathAndDrive(finishTile.transform.position);
 
         Racer enemy4 = Instantiate(
@@ -48,7 +48,7 @@ public class RaceManager : MonoBehaviour
             new Vector2(0f + .5f, 0f + .5f), 
             Quaternion.identity
         ).GetComponent<Racer>();
-        enemy4.pathEngine = new PathfindingEngine(tiles, enemy4.equipement);
+        enemy4.pathEngine = new AStarEngine(tiles, enemy4.equipement);
         enemy4.FindPathAndDrive(finishTile.transform.position);
     }
 
