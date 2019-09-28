@@ -25,7 +25,7 @@ public class RaceManager : MonoBehaviour
             Quaternion.identity
         ).GetComponent<Racer>();
         enemy1.pathEngine = new AStarEngine(tiles, enemy1.equipement);
-        enemy1.FindPathAndDrive(finishTile.transform.position);
+        StartCoroutine(enemy1.FindPathAndDrive(finishTile.transform.position));
 
         Racer enemy2 = Instantiate(
             carPrefab, 
@@ -33,15 +33,15 @@ public class RaceManager : MonoBehaviour
             Quaternion.identity
         ).GetComponent<Racer>();
         enemy2.pathEngine = new DijkstraEngine(tiles, enemy2.equipement);
-        enemy2.FindPathAndDrive(finishTile.transform.position);
+        StartCoroutine(enemy2.FindPathAndDrive(finishTile.transform.position));
 
         Racer enemy3 = Instantiate(
             truckPrefab, 
             new Vector2(6f + .5f, 0f + .5f), 
             Quaternion.identity
         ).GetComponent<Racer>();
-        enemy3.pathEngine = new DijkstraEngine(tiles, enemy3.equipement);
-        enemy3.FindPathAndDrive(finishTile.transform.position);
+        enemy3.pathEngine = new AStarEngine(tiles, enemy3.equipement);
+       StartCoroutine(enemy3.FindPathAndDrive(finishTile.transform.position, true));
 
         Racer enemy4 = Instantiate(
             truckPrefab, 
@@ -49,7 +49,7 @@ public class RaceManager : MonoBehaviour
             Quaternion.identity
         ).GetComponent<Racer>();
         enemy4.pathEngine = new DijkstraEngine(tiles, enemy4.equipement);
-        enemy4.FindPathAndDrive(finishTile.transform.position);
+        StartCoroutine(enemy4.FindPathAndDrive(finishTile.transform.position));
     }
 
     void BuildLevel()

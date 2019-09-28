@@ -31,7 +31,8 @@ public class AStarEngine : PathfindingEngine
         startNode.fCost = grid.GetDistance(startNode, targetNode);
         openSet.Add(startNode);
         if (debug)
-            tiles[startNode.x, startNode.y].SetDebugColor(Color.yellow);
+            tiles[startNode.x, startNode.y].SetDebugColor(Color.cyan);
+        yield return new WaitForSeconds(thinkTimeStep);
 
         while (openSet.Count > 0)
         {
@@ -54,7 +55,8 @@ public class AStarEngine : PathfindingEngine
             openSet.Remove(currentNode);
             closedSet.Add(currentNode);
             if (debug)
-                tiles[currentNode.x, currentNode.y].SetDebugColor(Color.blue);
+                tiles[currentNode.x, currentNode.y].SetDebugColor(Color.yellow);
+            yield return new WaitForSeconds(thinkTimeStep);
 
             foreach (Node neighbor in grid.GetNodeNeighbors4(currentNode))
             {
@@ -72,12 +74,13 @@ public class AStarEngine : PathfindingEngine
                     {
                         openSet.Add(neighbor);
                         if (debug)
-                            tiles[startNode.x, startNode.y].SetDebugColor(Color.yellow);
+                            tiles[neighbor.x, neighbor.y].SetDebugColor(Color.cyan);
+                        yield return new WaitForSeconds(thinkTimeStep);
                     }
                 }
             }
         }
-        yield return null;        
+        yield return null;
     }
 
     public List<PathNode> ReconstructPath(Node current, bool debug)

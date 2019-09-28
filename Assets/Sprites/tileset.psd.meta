@@ -26,6 +26,18 @@ TextureImporter:
   - first:
       213: 2970621271028506849
     second: start
+  - first:
+      213: -8571611467604783791
+    second: think-0
+  - first:
+      213: 3409283034699278985
+    second: think-1
+  - first:
+      213: 6342565536861160556
+    second: think-2
+  - first:
+      213: -6126525933619576552
+    second: think-3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -277,7 +289,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -285,6 +297,90 @@ TextureImporter:
       bones: []
       spriteID: 5b04f8789a755f84890c460fafb748a5
       internalID: 2970621271028506849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: think-0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d17d7b77ce34cb4b92ed2b7264be048
+      internalID: -8571611467604783791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: think-1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b2fb57aa9dbeb44b94ae47d5b58682f
+      internalID: 3409283034699278985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: think-2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee287a3b44ef1d6459906ab5baae1035
+      internalID: 6342565536861160556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: think-3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c595d4a8a9c0d5a499acf574e485dfc2
+      internalID: -6126525933619576552
       vertices: []
       indices: 
       edges: []

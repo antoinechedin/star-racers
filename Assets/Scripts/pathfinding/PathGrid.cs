@@ -65,6 +65,11 @@ public class PathGrid
         return distance.magnitude;
     }
 
+    public float GetDistanceManhatan(Node start, Node target)
+    {
+        return target.x - start.x + target.y - start.y;
+    }
+
     /*private void OnDrawGizmos()
     {
         for (int x = 0; x < gridSize.x; x++)

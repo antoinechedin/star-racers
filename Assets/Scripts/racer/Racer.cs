@@ -8,10 +8,14 @@ public class Racer : MonoBehaviour
     public List<PathNode> path = new List<PathNode>();
     public RacerEquipement equipement;
     bool moving = false;
+    public Sprite[] thinkSprites;
+    [HideInInspector] public float thinkStep;
 
-    public void FindPathAndDrive(Vector2 target, bool debug = false)
+    SpriteRenderer thinkRenderer;
+
+    public IEnumerator FindPathAndDrive(Vector2 target, bool debug = false)
     {
-        StartCoroutine(pathEngine.FindPath(transform.position, target, debug));
+        yield return StartCoroutine(pathEngine.FindPath(transform.position, target, debug));
         path = pathEngine.path;
     }
 
@@ -34,13 +38,24 @@ public class Racer : MonoBehaviour
         }
         moving = false;
         path.RemoveAt(0);
-        yield return null;
+    }
+
+    private void Start()
+    {
+        thinkRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        thinkStep = Random.Range(0f, 4f);
     }
 
     void Update()
     {
+        if (!moving)
+        {
+            thinkStep += Time.deltaTime / .5f;
+            thinkRenderer.sprite = thinkSprites[(int)thinkStep % thinkSprites.Length];
+        }
         if (!moving && path.Count >= 2)
         {
+            thinkRenderer.sprite = null;
             moving = true;
             StartCoroutine(Move(path[1].GetWorldPosition(), (path[0].GetTravelCost() + path[1].GetTravelCost()) / 2f));
         }

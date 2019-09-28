@@ -27,7 +27,7 @@ public class DijkstraEngine : PathfindingEngine
 
         GraphNode startNode = graph.GetGraphNodeFromWorldPosition(start);
         GraphNode targetNode = graph.GetGraphNodeFromWorldPosition(target);
-        path = ReconstructPath(startNode);
+        path = ReconstructPath(startNode, debug);
 
         startNode.pathCost = 0;
 
@@ -35,10 +35,13 @@ public class DijkstraEngine : PathfindingEngine
         {
             GraphNode nearest = graph.GetNearestNode();
             graph.RemoveGraphNode(nearest);
+            if (debug)
+                tiles[nearest.x, nearest.y].SetDebugColor(Color.yellow);
+            yield return new WaitForSeconds(thinkTimeStep);
 
             if (nearest == targetNode)
             {
-                path = ReconstructPath(nearest);
+                path = ReconstructPath(nearest, debug);
                 break;
             }
 
@@ -49,21 +52,29 @@ public class DijkstraEngine : PathfindingEngine
                 {
                     edge.to.pathCost = newPathCost;
                     edge.to.previous = nearest;
+                    if (debug)
+                        tiles[edge.to.x, edge.to.y].SetDebugColor(Color.cyan);
+                    yield return new WaitForSeconds(thinkTimeStep);
+
                 }
             }
         }
         yield return null;
     }
 
-    public List<PathNode> ReconstructPath(GraphNode current)
+    public List<PathNode> ReconstructPath(GraphNode current, bool debug)
     {
         List<PathNode> path = new List<PathNode>();
 
         path.Add(current);
+        if (debug)
+            tiles[current.x, current.y].SetDebugColor(Color.red);
         while (current.previous != null)
         {
             current = current.previous;
             path.Add(current);
+            if (debug)
+                tiles[current.x, current.y].SetDebugColor(Color.red);
         }
         path.Reverse();
         return path;
