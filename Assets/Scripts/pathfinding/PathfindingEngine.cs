@@ -6,5 +6,5 @@ public abstract class PathfindingEngine
 {
     public List<PathNode> path;
 
-    public abstract List<PathNode> FindPath(Vector2 start, Vector2 target, bool debug);
+    public abstract IEnumerator FindPath(Vector2 start, Vector2 target, bool debug);
 }

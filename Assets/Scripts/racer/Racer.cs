@@ -11,7 +11,8 @@ public class Racer : MonoBehaviour
 
     public void FindPathAndDrive(Vector2 target, bool debug = false)
     {
-        path = pathEngine.FindPath(transform.position, target, debug);
+        StartCoroutine(pathEngine.FindPath(transform.position, target, debug));
+        path = pathEngine.path;
     }
 
     IEnumerator Move(Vector3 to, float duration)

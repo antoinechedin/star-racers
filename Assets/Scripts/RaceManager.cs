@@ -25,7 +25,7 @@ public class RaceManager : MonoBehaviour
             Quaternion.identity
         ).GetComponent<Racer>();
         enemy1.pathEngine = new AStarEngine(tiles, enemy1.equipement);
-        enemy1.FindPathAndDrive(finishTile.transform.position, true);
+        enemy1.FindPathAndDrive(finishTile.transform.position);
 
         Racer enemy2 = Instantiate(
             carPrefab, 

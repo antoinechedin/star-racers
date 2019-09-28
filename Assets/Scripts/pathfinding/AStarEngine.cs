@@ -18,10 +18,11 @@ public class AStarEngine : PathfindingEngine
         return new PathGrid(tiles, equipement);
     }
 
-    public override List<PathNode> FindPath(Vector2 start, Vector2 target, bool debug)
+    public override IEnumerator FindPath(Vector2 start, Vector2 target, bool debug)
     {
         Node startNode = grid.GetNodeFromWorldPostion(start);
         Node targetNode = grid.GetNodeFromWorldPostion(target);
+        path = ReconstructPath(startNode, debug);
 
         List<Node> openSet = new List<Node>();
         List<Node> closedSet = new List<Node>();
@@ -46,7 +47,8 @@ public class AStarEngine : PathfindingEngine
 
             if (currentNode == targetNode)
             {
-                return ReconstructPath(currentNode, debug);
+                path = ReconstructPath(currentNode, debug);
+                break;
             }
 
             openSet.Remove(currentNode);
@@ -75,8 +77,7 @@ public class AStarEngine : PathfindingEngine
                 }
             }
         }
-        // Path finding as failed, return current node
-        return ReconstructPath(startNode, debug);
+        yield return null;        
     }
 
     public List<PathNode> ReconstructPath(Node current, bool debug)

@@ -18,7 +18,7 @@ public class DijkstraEngine : PathfindingEngine
         return new PathGraph(tiles, equipement);
     }
 
-    public override List<PathNode> FindPath(Vector2 start, Vector2 target, bool debug)
+    public override IEnumerator FindPath(Vector2 start, Vector2 target, bool debug)
     {
         foreach (GraphNode node in graph.nodes)
         {
@@ -27,6 +27,7 @@ public class DijkstraEngine : PathfindingEngine
 
         GraphNode startNode = graph.GetGraphNodeFromWorldPosition(start);
         GraphNode targetNode = graph.GetGraphNodeFromWorldPosition(target);
+        path = ReconstructPath(startNode);
 
         startNode.pathCost = 0;
 
@@ -37,7 +38,8 @@ public class DijkstraEngine : PathfindingEngine
 
             if (nearest == targetNode)
             {
-                return ReconstructPath(nearest);
+                path = ReconstructPath(nearest);
+                break;
             }
 
             foreach (GraphEdge edge in nearest.edges)
@@ -50,7 +52,7 @@ public class DijkstraEngine : PathfindingEngine
                 }
             }
         }
-        return ReconstructPath(startNode);
+        yield return null;
     }
 
     public List<PathNode> ReconstructPath(GraphNode current)
