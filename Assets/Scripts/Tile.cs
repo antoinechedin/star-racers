@@ -7,4 +7,9 @@ public class Tile : MonoBehaviour
     public Type type;
     public float travelCost = 1f;
     public bool isStart, isFinish;
+
+    public void SetDebugColor(Color c)
+    {
+        GetComponent<SpriteRenderer>().color = c;
+    }
 }

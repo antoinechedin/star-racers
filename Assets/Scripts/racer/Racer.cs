@@ -9,9 +9,9 @@ public class Racer : MonoBehaviour
     public RacerEquipement equipement;
     bool moving = false;
 
-    public void FindPathAndDrive(Vector2 target)
+    public void FindPathAndDrive(Vector2 target, bool debug = false)
     {
-        path = pathEngine.FindPath(transform.position, target);
+        path = pathEngine.FindPath(transform.position, target, debug);
     }
 
     IEnumerator Move(Vector3 to, float duration)

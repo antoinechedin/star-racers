@@ -24,8 +24,8 @@ public class RaceManager : MonoBehaviour
             new Vector2(1f + .5f, 0f + .5f), 
             Quaternion.identity
         ).GetComponent<Racer>();
-        enemy1.pathEngine = new DijkstraEngine(tiles, enemy1.equipement);
-        enemy1.FindPathAndDrive(finishTile.transform.position);
+        enemy1.pathEngine = new AStarEngine(tiles, enemy1.equipement);
+        enemy1.FindPathAndDrive(finishTile.transform.position, true);
 
         Racer enemy2 = Instantiate(
             carPrefab, 

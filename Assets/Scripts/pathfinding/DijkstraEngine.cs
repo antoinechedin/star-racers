@@ -1,12 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DijkstraEngine : PathfindingEngine
 {
     PathGraph graph;
+    Tile[,] tiles;
 
     public DijkstraEngine(Tile[,] tiles, RacerEquipement equipement)
     {
+        this.tiles = tiles;
         graph = RebuildPathGraph(tiles, equipement);
     }
 
@@ -15,7 +18,7 @@ public class DijkstraEngine : PathfindingEngine
         return new PathGraph(tiles, equipement);
     }
 
-    public override List<PathNode> FindPath(Vector2 start, Vector2 target)
+    public override List<PathNode> FindPath(Vector2 start, Vector2 target, bool debug)
     {
         foreach (GraphNode node in graph.nodes)
         {
@@ -32,7 +35,8 @@ public class DijkstraEngine : PathfindingEngine
             GraphNode nearest = graph.GetNearestNode();
             graph.RemoveGraphNode(nearest);
 
-            if (nearest == targetNode){
+            if (nearest == targetNode)
+            {
                 return ReconstructPath(nearest);
             }
 
