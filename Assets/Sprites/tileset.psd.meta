@@ -38,6 +38,12 @@ TextureImporter:
   - first:
       213: -6126525933619576552
     second: think-3
+  - first:
+      213: -7003828735585774437
+    second: race-car-player
+  - first:
+      213: -4247463398105074975
+    second: truck-player
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -381,6 +387,48 @@ TextureImporter:
       bones: []
       spriteID: c595d4a8a9c0d5a499acf574e485dfc2
       internalID: -6126525933619576552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race-car-player
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0174fd3c3dc7a3249ad266eacc52166f
+      internalID: -7003828735585774437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: truck-player
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e9d1fd880889464d8791beefc8f4eea
+      internalID: -4247463398105074975
       vertices: []
       indices: 
       edges: []

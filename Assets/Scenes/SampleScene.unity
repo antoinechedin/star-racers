@@ -240,6 +240,8 @@ MonoBehaviour:
     type: 3}
   truckPrefab: {fileID: 7821906704676805771, guid: 96f0285939beeb349b5f0128fc89d1c8,
     type: 3}
+  playerPrefab: {fileID: 5482746696496023412, guid: efbf15bfd11ff1e4e865e2ec37976121,
+    type: 3}
 --- !u!4 &2019292268
 Transform:
   m_ObjectHideFlags: 0

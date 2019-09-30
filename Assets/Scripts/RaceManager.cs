@@ -14,6 +14,7 @@ public class RaceManager : MonoBehaviour
 
     public GameObject carPrefab;
     public GameObject truckPrefab;
+    public GameObject playerPrefab;
 
     private void Start()
     {
@@ -24,32 +25,24 @@ public class RaceManager : MonoBehaviour
             new Vector2(1f + .5f, 0f + .5f), 
             Quaternion.identity
         ).GetComponent<Racer>();
-        enemy1.pathEngine = new AStarEngine(tiles, enemy1.equipement);
+        enemy1.pathEngine = new DijkstraEngine(tiles, enemy1.equipement);
         StartCoroutine(enemy1.FindPathAndDrive(finishTile.transform.position));
-
-        Racer enemy2 = Instantiate(
-            carPrefab, 
-            new Vector2(7f + .5f, 0f + .5f), 
-            Quaternion.identity
-        ).GetComponent<Racer>();
-        enemy2.pathEngine = new DijkstraEngine(tiles, enemy2.equipement);
-        StartCoroutine(enemy2.FindPathAndDrive(finishTile.transform.position));
 
         Racer enemy3 = Instantiate(
             truckPrefab, 
             new Vector2(6f + .5f, 0f + .5f), 
             Quaternion.identity
         ).GetComponent<Racer>();
-        enemy3.pathEngine = new AStarEngine(tiles, enemy3.equipement);
-       StartCoroutine(enemy3.FindPathAndDrive(finishTile.transform.position, true));
+        enemy3.pathEngine = new DijkstraEngine(tiles, enemy3.equipement);
+       StartCoroutine(enemy3.FindPathAndDrive(finishTile.transform.position));
 
-        Racer enemy4 = Instantiate(
-            truckPrefab, 
-            new Vector2(0f + .5f, 0f + .5f), 
+        Racer player = Instantiate(
+            playerPrefab, 
+            new Vector2(4f + .5f, 0f + .5f), 
             Quaternion.identity
         ).GetComponent<Racer>();
-        enemy4.pathEngine = new DijkstraEngine(tiles, enemy4.equipement);
-        StartCoroutine(enemy4.FindPathAndDrive(finishTile.transform.position));
+        player.pathEngine = new AStarEngine(tiles, player.equipement);
+        StartCoroutine(player.FindPathAndDrive(finishTile.transform.position, false));
     }
 
     void BuildLevel()

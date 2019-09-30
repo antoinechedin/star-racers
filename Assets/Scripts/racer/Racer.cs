@@ -48,7 +48,7 @@ public class Racer : MonoBehaviour
 
     void Update()
     {
-        if (!moving)
+        if (!moving && path.Count == 0)
         {
             thinkStep += Time.deltaTime / .5f;
             thinkRenderer.sprite = thinkSprites[(int)thinkStep % thinkSprites.Length];
